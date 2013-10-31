@@ -84,11 +84,4 @@ This module provides 30 sprintf formatters for templates.
 
 =back
 
-=head1 AUTHOR AND LICENSE
-
-Copyright 2012 Renee Baecker <module@renee-baecker.de>
-
-License: Artistic License 2.0
-
-=cut
 

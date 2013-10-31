@@ -73,10 +73,3 @@ sub escape_html {
 
     is $output, '&nbsp; hello<br />', 'test';
 
-=head1 AUTHOR AND LICENSE
-
-Copyright 2012 Renee Baecker C<< <module@renee-baecker.de> >>
-
-License: Artistic License 2.0
-
-=cut
