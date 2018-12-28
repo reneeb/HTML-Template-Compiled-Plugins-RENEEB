@@ -1,0 +1,105 @@
+[![Build Status](https://travis-ci.org/reneeb/HTML-Template-Compiled-Plugins-RENEEB.svg?branch=master)](https://travis-ci.org/reneeb/HTML-Template-Compiled-Plugins-RENEEB)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/HTML-Template-Compiled-Plugins-RENEEB.png)](http://cpants.charsbar.org/dist/overview/HTML-Template-Compiled-Plugins-RENEEB)
+[![GitHub issues](https://img.shields.io/github/issues/reneeb/HTML-Template-Compiled-Plugins-RENEEB.svg)](https://github.com/reneeb/HTML-Template-Compiled-Plugins-RENEEB/issues)
+
+# NAME
+
+HTML::Template::Compiled::Plugin::HTML2 - Do not escape all HTML entities
+
+# VERSION
+
+version 0.03
+
+# SYNOPSIS
+
+    my $template = '<%= test ESCAPE=HTML_WITHOUT_NBSP %>';
+    my $text     = 'hello>';
+
+    my $tmpl = HTML::Template::Compiled->new(
+        scalarref => \$template,
+        plugin    => [ 'HTML::Template::Compiled::Plugin::HTML2' ],
+    );
+
+    $tmpl->param( test => $text );
+    my $output = $tmpl->output;
+
+    is $output, 'hello&gt;', '> => &gt;';
+
+    my $template = '<%= test ESCAPE=HTML_WITHOUT_NBSP %>';
+    my $text     = '&nbsp; hello<br />';
+
+    my $tmpl = HTML::Template::Compiled->new(
+        scalarref => \$template,
+        plugin    => [ 'HTML::Template::Compiled::Plugin::HTML2' ],
+    );
+
+    $tmpl->param( test => $text );
+    my $output = $tmpl->output;
+
+    is $output, '&nbsp; hello<br />', 'test';
+
+# DESCRIPTION
+
+# METHODS
+
+## register
+
+## escape\_html
+
+
+
+# Development
+
+The distribution is contained in a Git repository, so simply clone the
+repository
+
+```
+$ git clone git://github.com/reneeb/HTML-Template-Compiled-Plugins-RENEEB.git
+```
+
+and change into the newly-created directory.
+
+```
+$ cd HTML-Template-Compiled-Plugins-RENEEB
+```
+
+The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
+build the distribution, hence this will need to be installed before
+continuing:
+
+```
+$ cpanm Dist::Zilla
+```
+
+To install the required prequisite packages, run the following set of
+commands:
+
+```
+$ dzil authordeps --missing | cpanm
+$ dzil listdeps --author --missing | cpanm
+```
+
+The distribution can be tested like so:
+
+```
+$ dzil test
+```
+
+To run the full set of tests (including author and release-process tests),
+add the `--author` and `--release` options:
+
+```
+$ dzil test --author --release
+```
+
+# AUTHOR
+
+Renee Baecker <reneeb@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Renee Baecker.
+
+This is free software, licensed under:
+
+    The Artistic License 2.0 (GPL Compatible)
