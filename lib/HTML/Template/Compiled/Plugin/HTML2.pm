@@ -10,7 +10,7 @@ HTML::Template::Compiled->register(__PACKAGE__);
 
 use HTML::Entities;
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 sub register{
     my ($class) = @_;
@@ -73,3 +73,8 @@ sub escape_html {
 
     is $output, '&nbsp; hello<br />', 'test';
 
+=head1 METHODS
+
+=head2 register
+
+=head2 escape_html

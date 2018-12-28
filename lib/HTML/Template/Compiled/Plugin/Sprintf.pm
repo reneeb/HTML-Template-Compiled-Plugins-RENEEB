@@ -8,7 +8,7 @@ use warnings;
 use HTML::Template::Compiled;
 HTML::Template::Compiled->register(__PACKAGE__);
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 sub register{
     my ($class) = @_;
@@ -84,4 +84,14 @@ This module provides 30 sprintf formatters for templates.
 
 =back
 
+=head1 METHODS
 
+=head2 register
+
+=head2 escape_sprintf_6_right
+
+=head2 escape_sprintf_8_right
+
+=head2 escape_sprintf_30_left
+
+=cut
